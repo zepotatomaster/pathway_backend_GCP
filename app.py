@@ -64,8 +64,8 @@ def add():
         for table in reversed(meta.sorted_tables):
             print('Clear table %s' % table)
             session.execute(table.delete())
-    session.commit()
-    return "Data was reset!"
+        session.commit()
+        return "Data was reset!"
     else:
         return "oh, fuck, shit, bitch!"
 
