@@ -60,11 +60,7 @@ def add():
         return jsonify(u.serialize())       # makes it so that the server treats the output as json
 
     elif request.method == 'DELETE':
-        meta = db.metadata
-        for table in reversed(meta.sorted_tables):
-            print('Clear table %s' % table)
-            session.execute(table.delete())
-        session.commit()
+        db.delete_all()
         return "Data was reset!"
     else:
         return "oh, fuck, shit, bitch!"
