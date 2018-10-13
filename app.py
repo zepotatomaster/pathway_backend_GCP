@@ -48,7 +48,7 @@ def add():
         form = request.form
         print(form)
         id = random.randint(1,1000000000)
-        print("ID " + id + " was created!")
+        #print("ID " + id + " was created!")
         name = form['name']                 # sets the name to the name that was posted in Postman
         latitude = form['latitude'] 
         longitude = form['longitude']
