@@ -46,9 +46,9 @@ class Waypoint(db.Model):
 def add():
     if request.method == 'POST':            # gets the body that was created in Postman
         form = request.form
-        print form
+        print(form)
         id = random.randint(1,1000000000)
-        print "ID " + id + " was created!"
+        print("ID " + id + " was created!")
         name = form['name']                 # sets the name to the name that was posted in Postman
         latitude = form['latitude'] 
         longitude = form['longitude']
@@ -62,7 +62,7 @@ def add():
     elif request.method == 'DELETE':
         meta = db.metadata
         for table in reversed(meta.sorted_tables):
-            print 'Clear table %s' % table
+            print('Clear table %s' % table)
             session.execute(table.delete())
     session.commit()
     return "Data was reset!"
