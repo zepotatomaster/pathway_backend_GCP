@@ -42,7 +42,7 @@ class Waypoint(db.Model):
         return '<Waypoint %r>' % (self.name)
 
     
-@app.route('/add/', methods = ['POST','GET'])   # different outputs whether we are POSTing or GETting
+@app.route('/add/', methods = ['POST','GET','DELETE'])   # different outputs whether we are POSTing or GETting
 def add():
     if request.method == 'POST':            # gets the body that was created in Postman
         form = request.form
@@ -57,6 +57,14 @@ def add():
         db.session.add(u)
         db.session.commit()
         return jsonify(u.serialize())       # makes it so that the server treats the output as json
+
+    elif request.method == 'DELETE':
+        meta = db.metadata
+        for table in reversed(meta.sorted_tables):
+            print 'Clear table %s' % table
+            session.execute(table.delete())
+    session.commit()
+    return "Data was reset!"
     else:
         return "oh, fuck, shit, bitch!"
 
