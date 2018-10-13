@@ -1,1 +1,1 @@
-"web: gunicorn app:pathwaymudd" 
+web: gunicorn app:pathwaymudd
