@@ -59,16 +59,12 @@ def add():
         db.session.commit()
         return jsonify(u.serialize())       # makes it so that the server treats the output as json
 
-    elif request.method == 'DELETE':
-        db.delete_all()
-        return "Data was reset!"
     else:
         return "oh, fuck, shit, bitch!"
 
-@app.route('/delete/')
+@app.route('/del/'  methods = ['DELETE'])
 def delete():
-    u = Waypoint.query.get(i)
-    db.session.delete(u)
+    models.Waypoint.query.delete()
     db.session.commit()
     return "user deleted"
 
