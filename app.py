@@ -62,7 +62,7 @@ def add():
     else:
         return "oh, fuck, shit, bitch!"
 
-@app.route('/del/'  methods = ['DELETE'])
+@app.route('/del/', methods = ['DELETE'])
 def delete():
     models.Waypoint.query.delete()
     db.session.commit()
