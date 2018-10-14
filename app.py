@@ -64,7 +64,7 @@ def add():
 
 @app.route('/del/', methods = ['DELETE'])
 def delete():
-    models.Waypoint.query.delete()
+    db.session.query(Waypoint).delete()
     db.session.commit()
     return "user deleted"
 
