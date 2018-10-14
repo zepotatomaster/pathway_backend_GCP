@@ -1,0 +1,5 @@
+web.site:
+  start: gunicorn app:app
+  
+data.mysql:
+  image: nanobox/mysql:5.6
